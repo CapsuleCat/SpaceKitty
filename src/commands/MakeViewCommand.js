@@ -26,7 +26,7 @@ var MakeViewCommand = function () {
     var componentRoot = path.join(workingDirectory, 'client', 'components');
 
     if (_hasNamespace) {
-      componentRoot = path.join(componentRoot, _namespace, _name);
+      componentRoot = path.join(componentRoot, _namespace);
     }
 
     return componentRoot;
