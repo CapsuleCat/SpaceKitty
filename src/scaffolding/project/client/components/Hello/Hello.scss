@@ -1,0 +1,32 @@
+@import "{poetic:materialize-scss}/bower_components/materialize/sass/materialize.scss";
+
+.hello {
+  @extend .container;
+  padding-bottom: 50px;
+  padding-top: 50px;
+
+  &__header {
+    @extend .header, .center;
+
+    &--major {
+      @extend .light-blue-text.text-lighten-1;
+    }
+
+    &--secondary {
+      @extend .col, .s12, .light;
+    }
+  }
+
+  &__row {
+    @extend .row, .center;
+  }
+
+  &__ul {
+    @extend .collection;
+    @extend .col, .s8, .offset-s2;
+  }
+
+  &__li {
+    @extend .collection-item;
+  }
+}

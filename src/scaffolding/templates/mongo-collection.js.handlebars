@@ -1,0 +1,34 @@
+/**
+ * {{#if hasNamespace}}{{namespace}} {{/if}}{{name}}
+ */
+{{#if hasNamespace}}
+{{namespace}} = typeof {{namespace}} === 'undefined' ? {} : {{namespace}};
+
+{{namespace}}.{{/if}}{{name}} = new Mongo.Collection('{{nameDashed}}');
+
+{{#if hasSchema}}
+var {{name}}Schema = new SimpleSchema({
+  //
+});
+
+{{#if hasNamespace}}{{namespace}}.{{/if}}{{name}}.attachSchema({{name}}Schema);
+{{/if}}
+
+{{#if selfPublishes}}
+{{#if hasNamespace}}{{namespace}}.{{/if}}{{name}}.allow({
+  insert: function () {
+    return false;
+  },
+  update: function () {
+    return false;
+  }
+});
+
+if ( Meteor.isServer ) {
+  Meteor.publish('{{nameDashed}}', function() {
+    return {{#if hasNamespace}}{{namespace}}.{{/if}}{{name}}.find({
+      //
+    });
+  });
+}
+{{/if}}

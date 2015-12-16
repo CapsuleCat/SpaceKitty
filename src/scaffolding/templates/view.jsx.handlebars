@@ -1,0 +1,32 @@
+/**
+ * {{#if hasNamespace}}{{namespace}} {{/if}}{{name}}
+ */
+{{#if hasNamespace}}
+{{namespace}} = typeof {{namespace}} === 'undefined' ? {} : {{namespace}};
+
+{{namespace}}.{{/if}}{{name}} = React.createClass({
+  mixins: [ReactMeteorData, ReactBEM],
+  getMeteorData() {
+    return {};
+  },
+  getInitialState() {
+    return {};
+  },
+  getDefaultProps() {
+    return {};
+  },
+  componentDidMount() {
+    //
+  },
+  bem_blocks: ['{{nameDashed}}'],
+  {{#if hasNamespace}}
+  bem_block_modifiers: ['{{namespaceDashed}}'],
+  {{/if}}
+  bem_render() {
+    return (
+      <div bem_element="">
+        <p>Hello</p>
+      </div>
+    );
+  }
+});
