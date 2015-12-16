@@ -66,6 +66,7 @@ var MakeViewCommand = function () {
 
     var workingDirectory = process.cwd();
     var base = _createPath(workingDirectory);
+
     var scssPath = _createScssPath(workingDirectory);
     write.sync(path.join(base, _name + '.jsx'), jsxContent);
     write.sync(path.join(base, '_' + _name + '.scss'), scssContent);

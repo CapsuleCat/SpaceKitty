@@ -24,7 +24,7 @@ Hello = React.createClass({
           <iframe src="//giphy.com/embed/JIX9t2j0ZTN9S" width="480" height="480" frameBorder="0" className="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/JIX9t2j0ZTN9S">via GIPHY</a></p>
         </div>
         <div role="row">
-          <p>Space Cat utilizes the following principles:</p>
+          <p>Space Kitty utilizes the following principles:</p>
           <ul>
             <li>Views are modules consisting of a React Component and a SCSS file.</li>
             <li>BEM — Block Element Modifier — is how to organize your SCSS.</li>
