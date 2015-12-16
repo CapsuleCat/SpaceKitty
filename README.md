@@ -19,12 +19,13 @@ meteor
 
 # Opinions
 
-* Naming convetion is CamelCase
-* React namespaced components
+* CamelCase file names and class names
+* React is used for views
+* Namespaced components are the norm
 * Automatic BEM classnames
 * SCSS
 * Materialize
-* Flow Router for the routing
+* Flow Router for routing
 
 # Commands
 
