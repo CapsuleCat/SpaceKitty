@@ -54,3 +54,5 @@ lib
     └──[Namespace]
         └── CollectionName.js
 ```
+
+
