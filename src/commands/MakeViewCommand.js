@@ -2,6 +2,7 @@ var Handlebars = require('handlebars');
 var read = require('read-file');
 var write = require('write');
 var path = require('path');
+var fs = require('fs');
 var MakeUtilities = require('../utilities/MakeUtilities');
 
 var MakeViewCommand = function () {
@@ -52,12 +53,12 @@ var MakeViewCommand = function () {
     var importStatement = '@import "{}/client/components/';
 
     if (_hasNamespace) {
-      importStatement  _namespace + '/';
+      importStatement = importStatement + _namespace + '/';
     }
 
     importStatement = importStatement + _name + '/' + _name + '";'
 
-    return importStatement;
+    return importStatement + '\n';
   }
 
   var handle = function () {
@@ -74,7 +75,7 @@ var MakeViewCommand = function () {
     var scssContent = _scssImport();
 
     fs.appendFile(scssPath, scssContent, function (err) {
-      console.log(err);
+      if (err) console.log(err);
     });
   };
 
