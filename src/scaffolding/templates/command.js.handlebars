@@ -1,0 +1,15 @@
+/**
+ * {{#if hasNamespace}}{{namespace}} {{/if}}{{name}}
+ */
+{{#if hasNamespace}}
+{{namespace}} = typeof {{namespace}} === 'undefined' ? {} : {{namespace}};
+
+{{namespace}}.{{/if}}{{name}} = function () {
+  var handle = function () {
+    //
+  };
+
+  return {
+    handle: handle
+  }
+};

@@ -1,0 +1,22 @@
+{
+  "name": "kitty",
+  "version": "1.0.0",
+  "description": "Opinionated Meteor command line utility",
+  "dependencies": {
+    "handlebars": "^4.0.5",
+    "read-file": "^0.2.0",
+    "write": "^0.2.1"
+  },
+  "devDependencies": {
+    "read-file": "^0.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "preferGlobal": true,
+  "bin": {
+    "kitty": "src/index.js"
+  }
+}
