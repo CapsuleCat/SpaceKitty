@@ -13,7 +13,7 @@ var MakeCommandCommand = function () {
   var _nameDashed = MakeUtilities.camelToDash(_name);
   var _type = (function () {
     var arg = _arguments[_arguments.length - 1];
-    if (['client', 'server', 'both'].indexOf(arg) !== 1) {
+    if (['client', 'server', 'both'].indexOf(arg) !== -1) {
       return arg;
     } else {
       return 'both';

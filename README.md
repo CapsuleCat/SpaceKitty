@@ -7,7 +7,7 @@ An opinionated command line utility for quickly creating Meteor projects.
 npm install -g space-kitty
 ```
 
-# Gettings Started
+# Getting Started
 
 ```
 mpm install -g space-kitty
@@ -29,15 +29,27 @@ meteor
 
 # Commands
 
-## kitty meow
+### meow
+
+```sh
+kitty meow
+```
 
 Make sure you have the CLI installed correctly, should just print `Meow` to the stdout.
 
-## kitty create ProjectName
+## create
+
+```sh
+kitty create ProjectName
+```
 
 This command will copy the project scaffolding into `./ProjectName`.
 
-## kitty make:view [Namespace] ViewName
+## make:view
+
+```sh
+kitty make:view [Namespace] ViewName
+```
 
 This command will create a module consisting of:
 
@@ -53,7 +65,11 @@ client
 It will also add an import statement to `client/styles/main.scss` to import your new
 `.scss` file.
 
-## kitty make:command [Namespace] CommandName [server|client|(both)]
+## make:command
+
+```sh
+kitty make:command [Namespace] CommandName [server|client|(both)]
+```
 
 This command will create a command (defaults to both a client and server):
 
@@ -64,7 +80,13 @@ lib
         └── CommandName.js
 ```
 
-## kitty make:collection [Namespace] CollectionName [--self-publishes] [--with-schema]
+You can then call your command using `dispatch(CommandName, arg1, arg2)` or `dispatchAsync(CommandName, arg1, arg2, callback);`.
+
+## make:collection
+
+```sh
+kitty make:collection [Namespace] CollectionName [--self-publishes] [--with-schema]
+```
 
 This command will create a Mongo Collection:
 
