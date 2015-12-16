@@ -30,8 +30,11 @@ client
     └──[Namespace]
         └── ViewName
             ├── ViewName.jsx
-            └── ViewName.scss
+            └── _ViewName.scss
 ```
+
+It will also add an import statement to `client/styles/main.scss` to import your new
+`.scss` file.
 
 ## kitty make:command [Namespace] CommandName [server|client|(both)]
 
