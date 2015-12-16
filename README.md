@@ -1,7 +1,23 @@
 Space Kitty
 ===========
 
-Opinions:
+An opinionated command line utility for quickly creating Meteor projects.
+
+```
+npm install -g space-kitty
+```
+
+# Gettings Started
+
+```
+mpm install -g space-kitty
+kitty meow
+kitty create MyProject
+cd MyProject
+meteor
+```
+
+# Opinions
 
 * Naming convetion is CamelCase
 * React namespaced components
