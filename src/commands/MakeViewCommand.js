@@ -29,6 +29,8 @@ var MakeViewCommand = function () {
       componentRoot = path.join(componentRoot, _namespace);
     }
 
+    componentRoot = path.join(componentRoot, _name);
+
     return componentRoot;
   }
 

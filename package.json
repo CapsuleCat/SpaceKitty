@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Opinionated Meteor command line utility",
   "dependencies": {
+    "connect": "^3.4.0",
     "handlebars": "^4.0.5",
     "read-file": "^0.2.0",
+    "serve-static": "^1.10.0",
     "write": "^0.2.1"
   },
   "devDependencies": {

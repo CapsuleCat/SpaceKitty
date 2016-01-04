@@ -44,7 +44,7 @@ var BEMTransformer = function() {
     if (typeof child === "string")
       return [];
 
-    if (typeof child.props.modifiers !== "string") return [];
+    if (typeof child === "string" || typeof child.props.modifiers !== "string") return [];
     return child.props.modifiers.split(" ");
   };
 
@@ -147,12 +147,12 @@ var BEMTransformer = function() {
     return changes
   }
 
-  this.transformChild = function(element, blocks, block_modifiers, translate) {
+  this.transform = function(element, blocks, block_modifiers, translate) {
     if (typeof element !== 'object') return element
 
     const changes = this.transformElementProps(
       element.props,
-      this.transformChild,
+      this.transform,
       blocks, block_modifiers, translate
     )
 
@@ -179,7 +179,7 @@ ReactBEM = {
   },
 
   render: function() {
-    return transformer.transformChild(
+    return transformer.transform(
         this.bem_render(),
         this.bem_blocks,
         this.bem_block_modifiers,
