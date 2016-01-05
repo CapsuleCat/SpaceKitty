@@ -6,10 +6,10 @@ var MakeUtilities = require('../utilities/MakeUtilities');
 
 var MakeMigrationCommand = function () {
   var _arguments = Array.prototype.slice.call(arguments);
-  var _namespace = (_arguments.length > 2 ? _arguments[0] : '');
+  var _namespace = (_arguments.length > 1 ? _arguments[0] : '');
   var _namespaceDashed = MakeUtilities.camelToDash(_namespace);
-  var _hasNamespace = (_arguments.length > 2);
-  var _name = (_arguments.length > 2 ? _arguments[1] : _arguments[0] );
+  var _hasNamespace = (_arguments.length > 1);
+  var _name = (_arguments.length > 1 ? _arguments[1] : _arguments[0] );
   var _nameDashed = MakeUtilities.camelToDash(_name);
   var _timeStamp =  +new Date();
 

@@ -30,6 +30,13 @@ meteor
 
 # Commands
 
+* [meow](#meow)
+* [create](#create)
+* [make:collection](#make:collection)
+* [make:command](#make:command)
+* [make:migration](#make:migration)
+* [make:view](#make:view)
+
 ### meow
 
 ```sh
@@ -45,6 +52,57 @@ kitty create ProjectName
 ```
 
 This command will copy the project scaffolding into `./ProjectName`.
+
+## make:collection
+
+```sh
+kitty make:collection [Namespace] CollectionName [--self-publishes] [--with-schema]
+```
+
+This command will create a Mongo Collection:
+
+```
+lib
+└──collections
+    └──[Namespace]
+        └── CollectionName.js
+```
+
+## make:command
+
+```sh
+kitty make:command [Namespace] CommandName [server|client|(both)]
+```
+
+This command will create a command (defaults to both a client and server):
+
+```
+lib
+└──commands
+    └──[Namespace]
+        └── CommandName.js
+```
+
+You can then call your command using `dispatch(CommandName, arg1, arg2)` or `dispatchAsync(CommandName, arg1, arg2, callback);`.
+
+## make:migration
+
+```sh
+kitty make:migration [Namespace] MigrationName
+```
+
+This command will create a Migration using [percolate:migrations](https://atmospherejs.com/percolate/migrations):
+
+```
+server
+└──migrations
+    └──[Namespace]
+        └── timestamp-migration-name.js
+```
+
+Migrations are automatically versioned by the timestamp of when they were created.
+
+The migration package and project scaffolding will not be created until you create your first migration. The `.meteor/packages` files will have `percolate:migrations` added to it if does not already exist. `server/RunMigrations.js` will automatically be created if it does not already exist.
 
 ## make:view
 
@@ -65,54 +123,3 @@ client
 
 It will also add an import statement to `client/styles/main.scss` to import your new
 `.scss` file.
-
-## make:command
-
-```sh
-kitty make:command [Namespace] CommandName [server|client|(both)]
-```
-
-This command will create a command (defaults to both a client and server):
-
-```
-lib
-└──commands
-    └──[Namespace]
-        └── CommandName.js
-```
-
-You can then call your command using `dispatch(CommandName, arg1, arg2)` or `dispatchAsync(CommandName, arg1, arg2, callback);`.
-
-## make:collection
-
-```sh
-kitty make:collection [Namespace] CollectionName [--self-publishes] [--with-schema]
-```
-
-This command will create a Mongo Collection:
-
-```
-lib
-└──collections
-    └──[Namespace]
-        └── CollectionName.js
-```
-
-## make:migration
-
-```sh
-kitty make:migration [Namespace] MigrationName
-```
-
-This command will create a Migration using [percolate:migrations](https://atmospherejs.com/percolate/migrations):
-
-```
-server
-└──migrations
-    └──[Namespace]
-        └── timestamp-migration-name.js
-```
-
-Migrations are automatically versioned by the timestamp of when they were created.
-
-The migration package and project scaffolding will not be created until you create your first migration. The `.meteor/packages` files will have `percolate:migrations` added to it if does not already exist. `server/RunMigrations.js` will automatically be created if it does not already exist.
