@@ -51,7 +51,7 @@ meteor
 * [make:command](#makecommand)
 * [make:migration](#makemigration)
 * [make:view](#makeview)
-* [remind-me:react-loops](#remind-mereactloops)
+* [remind-me:react-loops](#remind-mereact-loops)
 
 ### meow
 
