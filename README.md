@@ -32,7 +32,7 @@ meteor
 
 # Opinion Reasoning
 
-* There is no reason to pick CamelCase of dash delimited. However, much of the community uses CamelCase.
+* There is no reason to pick CamelCase over dash delimited. However, much of the community uses CamelCase.
 * Migrations are dashed because of the timestamp that proceeds them.
 * React is a very thin and flexible view layer.
 * Blaze is being deprecated by MDG.
@@ -51,7 +51,7 @@ meteor
 * [make:command](#makecommand)
 * [make:migration](#makemigration)
 * [make:view](#makeview)
-* [remind-me:react-loops]($remind-mereactloops)
+* [remind-me:react-loops](#remind-mereactloops)
 
 ### meow
 
