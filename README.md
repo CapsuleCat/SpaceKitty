@@ -32,10 +32,10 @@ meteor
 
 * [meow](#meow)
 * [create](#create)
-* [make:collection](#make:collection)
-* [make:command](#make:command)
-* [make:migration](#make:migration)
-* [make:view](#make:view)
+* [make:collection](#makecollection)
+* [make:command](#makecommand)
+* [make:migration](#makemigration)
+* [make:view](#makeview)
 
 ### meow
 
