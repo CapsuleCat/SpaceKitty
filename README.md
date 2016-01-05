@@ -1,6 +1,8 @@
 Space Kitty
 ===========
 
+![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
+
 An [opinionated](http://stackoverflow.com/questions/802050/what-is-opinionated-software) command line utility for quickly creating Meteor projects.
 
 ```
@@ -28,6 +30,19 @@ meteor
 * Flow Router for routing
 * [percolate:migrations](https://atmospherejs.com/percolate/migrations) for data migrations
 
+# Opinion Reasoning
+
+* There is no reason to pick CamelCase of dash delimited. However, much of the community uses CamelCase.
+* Migrations are dashed because of the timestamp that proceeds them.
+* React is a very thin and flexible view layer.
+* Blaze is being deprecated by MDG.
+* BEM is used to keep in the spirit of React styles.
+* BEM keeps a shallow hierarchy, making CSS faster to render.
+* SCSS is used due to the shortcomings of inline React styles, namely psuedo-selectors and media queries are not supported.
+* Materialize is included by default, feel free to swap this out with no repercussions.
+* Flow Router is preferred over Iron Router within the Meteor community.
+* Percolate migrations were chosen due to their popularity and simplicity.
+
 # Commands
 
 * [meow](#meow)
@@ -36,6 +51,7 @@ meteor
 * [make:command](#makecommand)
 * [make:migration](#makemigration)
 * [make:view](#makeview)
+* [remind-me:react-loops]($remind-mereactloops)
 
 ### meow
 
@@ -123,3 +139,11 @@ client
 
 It will also add an import statement to `client/styles/main.scss` to import your new
 `.scss` file.
+
+## remind-me:react-loops
+
+```sh
+remind-me:react-loops
+```
+
+This will print how to write a dynamic child loop in react

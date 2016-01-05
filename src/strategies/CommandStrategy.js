@@ -7,6 +7,7 @@ var AddMigrationPackageCommand = require('../commands/AddMigrationPackageCommand
 var MakeMigrationCommand = require('../commands/MakeMigrationCommand');
 var AddMigrationRunnerCommand = require('../commands/AddMigrationRunnerCommand');
 var PrintDocumentationCommand = require('../commands/PrintDocumentationCommand');
+var ReactLoopReminder = require('../reminders/ReactLoopReminder');
 
 var CommandStrategy = function(commandPattern, args, flags) {
   var _commander = function(klass) {
@@ -14,23 +15,38 @@ var CommandStrategy = function(commandPattern, args, flags) {
     command.handle(flags);
   }
 
+  var _reminder = function(klass) {
+    var reminder = new klass();
+    reminder.remindMe();
+  }
+
   var execute = function () {
-    if (commandPattern === 'meow') {
-      _commander(MeowCommand);
-    } else if (commandPattern === 'create') {
-      _commander(CreateCommand);
-    } else if (commandPattern === 'make:view') {
-      _commander(MakeViewCommand);
-    } else if (commandPattern === 'make:command') {
-      _commander(MakeCommandCommand);
-    } else if (commandPattern === 'make:collection') {
-      _commander(MakeCollectionCommand);
-    } else if (commandPattern === 'make:migration') {
-      _commander(AddMigrationPackageCommand);
-      _commander(MakeMigrationCommand);
-      _commander(AddMigrationRunnerCommand);
-    } else {
-      _commander(PrintDocumentationCommand);
+    switch (commandPattern) {
+    case 'meow':
+        _commander(MeowCommand);
+        break;
+      case 'create':
+        _commander(CreateCommand);
+        break;
+      case 'make:view':
+        _commander(MakeViewCommand);
+        break;
+      case 'make:command':
+        _commander(MakeCommandCommand);
+        break;
+      case 'make:collection':
+        _commander(MakeCollectionCommand);
+        break;
+      case 'make:migration':
+        _commander(AddMigrationPackageCommand);
+        _commander(MakeMigrationCommand);
+        _commander(AddMigrationRunnerCommand);
+        break;
+      case 'remind-me:react-loop':
+        _reminder(ReactLoopReminder);
+        break;
+      default:
+        _commander(PrintDocumentationCommand);
     }
   };
 

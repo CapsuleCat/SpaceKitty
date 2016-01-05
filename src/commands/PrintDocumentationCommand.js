@@ -8,6 +8,8 @@ var PrintDocumentationCommand = function () {
     console.log('|    ├── collection ─ Create a collection (only supports Mongo)');
     console.log('|    ├── migration  ─ Create a migration (uses percolate:migrations)');
     console.log('|    └── view       ─ Create a view module');
+    console.log('├── remind-me');
+    console.log('|    └── react-loop ─ Reminds you how to achieve dynamic children in React');
     console.log('└── meow            ─ Verify that Space Kitty can meow');
   };
 
