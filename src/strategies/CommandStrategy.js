@@ -3,6 +3,9 @@ var CreateCommand = require('../commands/CreateCommand');
 var MakeViewCommand = require('../commands/MakeViewCommand');
 var MakeCommandCommand = require('../commands/MakeCommandCommand');
 var MakeCollectionCommand = require('../commands/MakeCollectionCommand');
+var AddMigrationPackageCommand = require('../commands/AddMigrationPackageCommand');
+var MakeMigrationCommand = require('../commands/MakeMigrationCommand');
+var AddMigrationRunnerCommand = require('../commands/AddMigrationRunnerCommand');
 var PrintDocumentationCommand = require('../commands/PrintDocumentationCommand');
 
 var CommandStrategy = function(commandPattern, args, flags) {
@@ -22,6 +25,10 @@ var CommandStrategy = function(commandPattern, args, flags) {
       _commander(MakeCommandCommand);
     } else if (commandPattern === 'make:collection') {
       _commander(MakeCollectionCommand);
+    } else if (commandPattern === 'make:migration') {
+      _commander(AddMigrationPackageCommand);
+      _commander(MakeMigrationCommand);
+      _commander(AddMigrationRunnerCommand);
     } else {
       _commander(PrintDocumentationCommand);
     }

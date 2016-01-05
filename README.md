@@ -1,7 +1,7 @@
 Space Kitty
 ===========
 
-An opinionated command line utility for quickly creating Meteor projects.
+An [opinionated](http://stackoverflow.com/questions/802050/what-is-opinionated-software) command line utility for quickly creating Meteor projects.
 
 ```
 npm install -g space-kitty
@@ -19,13 +19,14 @@ meteor
 
 # Opinions
 
-* CamelCase file names and class names
+* CamelCase file names and class names (except for migrations, which are timestamps and dashed)
 * React is used for views
 * Namespaced components are the norm
 * Automatic BEM classnames
 * SCSS
 * Materialize
 * Flow Router for routing
+* [percolate:migrations](https://atmospherejs.com/percolate/migrations) for data migrations
 
 # Commands
 
@@ -96,3 +97,22 @@ lib
     └──[Namespace]
         └── CollectionName.js
 ```
+
+## make:migration
+
+```sh
+kitty make:migration [Namespace] MigrationName
+```
+
+This command will create a Migration using [percolate:migrations](https://atmospherejs.com/percolate/migrations):
+
+```
+server
+└──migrations
+    └──[Namespace]
+        └── timestamp-migration-name.js
+```
+
+Migrations are automatically versioned by the timestamp of when they were created.
+
+The migration package and project scaffolding will not be created until you create your first migration. The `.meteor/packages` files will have `percolate:migrations` added to it if does not already exist. `server/RunMigrations.js` will automatically be created if it does not already exist.
