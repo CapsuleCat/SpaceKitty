@@ -3,6 +3,7 @@ var CreateCommand = require('../commands/CreateCommand');
 var MakeViewCommand = require('../commands/MakeViewCommand');
 var MakeCommandCommand = require('../commands/MakeCommandCommand');
 var MakeCollectionCommand = require('../commands/MakeCollectionCommand');
+var MakeMeteorMethodCommand = require('../commands/MakeMeteorMethodCommand');
 var AddMigrationPackageCommand = require('../commands/AddMigrationPackageCommand');
 var MakeMigrationCommand = require('../commands/MakeMigrationCommand');
 var AddMigrationRunnerCommand = require('../commands/AddMigrationRunnerCommand');
@@ -34,6 +35,9 @@ var CommandStrategy = function(commandPattern, args, flags) {
         break;
       case 'make:command':
         _commander(MakeCommandCommand);
+        break;
+      case 'make:meteor-method':
+        _commander(MakeMeteorMethodCommand);
         break;
       case 'make:collection':
         _commander(MakeCollectionCommand);

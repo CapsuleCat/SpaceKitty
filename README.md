@@ -101,6 +101,23 @@ lib
 
 You can then call your command using `dispatch(CommandName, arg1, arg2)` or `dispatchAsync(CommandName, arg1, arg2, callback);`.
 
+## make:meteor-method
+
+```sh
+kitty make:meteor-method [Namespace] MethodName
+```
+
+This command will create a new file containing a single Meteor method.
+
+```
+server
+└──methods
+    └──[Namespace]
+        └── MethodName.js
+```
+
+The side-effect of using this command is that you will have many different files with one Meteor method in each of them, which is different than how most developers are used to writing Meteor methods.
+
 ## make:migration
 
 ```sh
