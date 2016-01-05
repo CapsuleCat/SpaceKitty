@@ -8,6 +8,7 @@ var MakeMigrationCommand = require('../commands/MakeMigrationCommand');
 var AddMigrationRunnerCommand = require('../commands/AddMigrationRunnerCommand');
 var PrintDocumentationCommand = require('../commands/PrintDocumentationCommand');
 var ReactLoopReminder = require('../reminders/ReactLoopReminder');
+var MeteorCallReminder = require('../reminders/MeteorCallReminder');
 
 var CommandStrategy = function(commandPattern, args, flags) {
   var _commander = function(klass) {
@@ -44,6 +45,9 @@ var CommandStrategy = function(commandPattern, args, flags) {
         break;
       case 'remind-me:react-loop':
         _reminder(ReactLoopReminder);
+        break;
+      case 'remind-me:meteor-call':
+        _reminder(MeteorCallReminder);
         break;
       default:
         _commander(PrintDocumentationCommand);

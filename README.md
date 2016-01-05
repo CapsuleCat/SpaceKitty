@@ -51,7 +51,7 @@ meteor
 * [make:command](#makecommand)
 * [make:migration](#makemigration)
 * [make:view](#makeview)
-* [remind-me:react-loops](#remind-mereact-loops)
+* [remind-me](#remind-me)
 
 ### meow
 
@@ -140,10 +140,12 @@ client
 It will also add an import statement to `client/styles/main.scss` to import your new
 `.scss` file.
 
-## remind-me:react-loops
+## remind-me
+
+Space Kitty is there for you by having reminders on how to do common stuff:
 
 ```sh
+remind-me:meteor-call
 remind-me:react-loops
 ```
 
-This will print how to write a dynamic child loop in react
