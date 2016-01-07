@@ -9,7 +9,7 @@
     "serve-static": "^1.10.0",
     "write": "^0.2.1",
     "read-file": "^0.2.0",
-    "recursive-copy": "^1.0.10"`
+    "recursive-copy": "^1.0.10"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
