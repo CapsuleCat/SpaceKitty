@@ -12,6 +12,8 @@ var MakeCollectionCommand = function () {
   var _name = (_arguments.length > 1 ? _arguments[1] : _arguments[0] );
   var _nameDashed = MakeUtilities.camelToDash(_name);
   var _hasSchema = false;
+  var _local = false;
+  var _class = false;
   var _selfPublishes = false;
 
   var _templatePath = function() {
@@ -20,7 +22,13 @@ var MakeCollectionCommand = function () {
 
   var _createPath = function(workingDirectory) {
     // TODO allow the user to create the new view from anywhere in the project (not just the root)
-    var componentRoot = path.join(workingDirectory, 'lib', 'collections');
+    var componentRoot;
+
+    if (_local) {
+      componentRoot = path.join(workingDirectory, 'client', 'collections');
+    } else {
+      componentRoot = path.join(workingDirectory, 'lib', 'collections');
+    }
 
     if (_hasNamespace) {
       componentRoot = path.join(componentRoot, _namespace);
@@ -39,7 +47,9 @@ var MakeCollectionCommand = function () {
       name: _name,
       nameDashed: _nameDashed,
       hasSchema: _hasSchema,
-      selfPublishes: _selfPublishes
+      selfPublishes: _selfPublishes,
+      local: _local,
+      'class': _class
     });
   }
 
@@ -50,6 +60,14 @@ var MakeCollectionCommand = function () {
 
     if (flags.indexOf('--self-publishes') !== -1) {
       _selfPublishes = true;
+    }
+
+    if (flags.indexOf('--local') !== -1) {
+      _local = true;
+    }
+
+    if (flags.indexOf('--class') !== -1) {
+      _class = true;
     }
 
     var jsContent = _templatize(_templatePath());

@@ -72,7 +72,7 @@ This command will copy the project scaffolding into `./ProjectName`.
 ## make:collection
 
 ```sh
-kitty make:collection [Namespace] CollectionName [--self-publishes] [--with-schema]
+kitty make:collection [Namespace] CollectionName [--self-publishes] [--with-schema] [--local] [--class]
 ```
 
 This command will create a Mongo Collection:
