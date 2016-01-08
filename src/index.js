@@ -1,5 +1,3 @@
-#! /usr/bin/env node
-
 var CommandStrategy = require('./strategies/CommandStrategy');
 
 var userArgs = process.argv.slice(2);
