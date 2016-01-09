@@ -14,11 +14,11 @@ var MakeViewCommand = function () {
   var _nameDashed = MakeUtilities.camelToDash(_name);
 
   var _templatePath = function() {
-    return path.join(__dirname, '..', 'scaffolding', 'templates', 'view.jsx.handlebars');
+    return path.join(__dirname, '..', '..', 'scaffolding', 'templates', 'view.jsx.handlebars');
   }
 
   var _scssPath = function () {
-    return path.join(__dirname, '..', 'scaffolding', 'templates', 'bem.scss.handlebars');
+    return path.join(__dirname, '..', '..', 'scaffolding', 'templates', 'bem.scss.handlebars');
   }
 
   var _createPath = function(workingDirectory) {

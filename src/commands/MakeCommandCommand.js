@@ -21,7 +21,7 @@ var MakeCommandCommand = function () {
   })();
 
   var _templatePath = function() {
-    return path.join(__dirname, '..', 'scaffolding', 'templates', 'command.js.handlebars');
+    return path.join(__dirname, '..', '..', 'scaffolding', 'templates', 'command.js.handlebars');
   }
 
   var _createPath = function(workingDirectory) {

@@ -17,7 +17,7 @@ var MakeCollectionCommand = function () {
   var _selfPublishes = false;
 
   var _templatePath = function() {
-    return path.join(__dirname, '..', 'scaffolding', 'templates', 'mongo-collection.js.handlebars');
+    return path.join(__dirname, '..', '..', 'scaffolding', 'templates', 'mongo-collection.js.handlebars');
   }
 
   var _createPath = function(workingDirectory) {

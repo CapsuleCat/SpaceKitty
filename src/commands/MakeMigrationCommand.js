@@ -14,7 +14,7 @@ var MakeMigrationCommand = function () {
   var _timeStamp =  +new Date();
 
   var _templatePath = function() {
-    return path.join(__dirname, '..', 'scaffolding', 'templates', 'migration.js.handlebars');
+    return path.join(__dirname, '..', '..', 'scaffolding', 'templates', 'migration.js.handlebars');
   }
 
   var _createPath = function(workingDirectory) {
