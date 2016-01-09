@@ -3,6 +3,8 @@ Space Kitty
 
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
 
+For Node v5.4.0+.
+
 An [opinionated](http://stackoverflow.com/questions/802050/what-is-opinionated-software) command line utility for quickly creating Meteor projects.
 
 ```
