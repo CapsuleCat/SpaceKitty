@@ -1,6 +1,6 @@
 {
   "name": "space-kitty",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Opinionated Meteor command line utility",
   "dependencies": {
     "connect": "^3.4.0",
