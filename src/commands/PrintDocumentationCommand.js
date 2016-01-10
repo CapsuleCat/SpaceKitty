@@ -1,6 +1,8 @@
+var pjson = require('./package.json');
+
 var PrintDocumentationCommand = function () {
   var handle = function () {
-    console.log('Space Kitty - Version 1.0.0');
+    console.log('Space Kitty - Version ' + pjson.version);
     console.log('');
     console.log('├── create             ─ Create a new project');
     console.log('├── make');
