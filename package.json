@@ -2,6 +2,16 @@
   "name": "space-kitty",
   "version": "0.1.3",
   "description": "Opinionated Meteor command line utility",
+  "homepage": "http://spacekitty.capsulecat.com",
+  "bugs": "https://github.com/capsulecat/spacekitty/issues",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/capsulecat/spacekitty.git"
+  },
+  "engines": {
+    "node": ">=5.4.0"
+  },
   "dependencies": {
     "connect": "^3.4.0",
     "handlebars": "^4.0.5",
@@ -13,8 +23,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "MIT",
+  "author": "Capsule Cat",
   "preferGlobal": true,
   "bin": {
     "kitty": "src/index.js"
