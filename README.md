@@ -7,7 +7,7 @@ For Meteor 1.2+ and Node v5.4.0+.
 
 [Full documentation available on the website](http://spacekitty.capsulecat.com/).
 
-An [opinionated](http://stackoverflow.com/questions/802050/what-is-opinionated-software) command line utility for quickly creating Meteor projects.
+An [opinionated](http://stackoverflow.com/questions/802050/what-is-opinionated-software) Meteor framework and command line utility for quickly creating Meteor projects.
 
 ```
 npm install -g space-kitty
