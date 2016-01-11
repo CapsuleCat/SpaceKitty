@@ -1,6 +1,6 @@
 {
   "name": "space-kitty",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Opinionated Meteor command line utility",
   "homepage": "http://spacekitty.capsulecat.com",
   "bugs": "https://github.com/capsulecat/spacekitty/issues",

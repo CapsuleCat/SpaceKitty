@@ -3,7 +3,9 @@ Space Kitty
 
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-For Node v5.4.0+.
+For Meteor 1.2+ and Node v5.4.0+.
+
+[Full documentation available on the website](http://spacekitty.capsulecat.com/).
 
 An [opinionated](http://stackoverflow.com/questions/802050/what-is-opinionated-software) command line utility for quickly creating Meteor projects.
 
@@ -89,7 +91,7 @@ lib
 ## make:command
 
 ```sh
-kitty make:command [Namespace] CommandName [server|client|(both)]
+kitty make:command [Namespace] CommandName [--server|client|(both)]
 ```
 
 This command will create a command (defaults to both a client and server):

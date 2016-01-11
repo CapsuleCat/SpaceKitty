@@ -6,19 +6,12 @@ var MakeUtilities = require('../utilities/MakeUtilities');
 
 var MakeCommandCommand = function () {
   var _arguments = Array.prototype.slice.call(arguments);
-  var _namespace = (_arguments.length > 2 ? _arguments[0] : '');
+  var _namespace = (_arguments.length > 1 ? _arguments[0] : '');
   var _namespaceDashed = MakeUtilities.camelToDash(_namespace);
-  var _hasNamespace = (_arguments.length > 2);
-  var _name = (_arguments.length > 2 ? _arguments[1] : _arguments[0] );
+  var _hasNamespace = (_arguments.length > 1);
+  var _name = (_arguments.length > 1 ? _arguments[1] : _arguments[0] );
   var _nameDashed = MakeUtilities.camelToDash(_name);
-  var _type = (function () {
-    var arg = _arguments[_arguments.length - 1];
-    if (['client', 'server', 'both'].indexOf(arg) !== -1) {
-      return arg;
-    } else {
-      return 'both';
-    }
-  })();
+  var _type = 'both'
 
   var _templatePath = function() {
     return path.join(__dirname, '..', '..', 'scaffolding', 'templates', 'command.js.handlebars');
@@ -52,7 +45,17 @@ var MakeCommandCommand = function () {
     });
   }
 
-  var handle = function () {
+  var handle = function (flags) {
+    _type = (function () {
+      if (flags.indexOf('--client') !== -1) {
+        return 'client';
+      } else if (flags.indexOf('--server') !== -1) {
+        return 'server';
+      } else {
+        return 'both';
+      }
+    })();
+
     var jsContent = _templatize(_templatePath());
 
     var workingDirectory = process.cwd();
