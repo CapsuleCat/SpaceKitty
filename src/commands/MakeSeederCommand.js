@@ -4,22 +4,21 @@ var write = require('write');
 var path = require('path');
 var MakeUtilities = require('../utilities/MakeUtilities');
 
-var MakeMigrationCommand = function () {
+var MakeSeederCommand = function () {
   var _arguments = Array.prototype.slice.call(arguments);
   var _namespace = (_arguments.length > 1 ? _arguments[0] : '');
   var _namespaceDashed = MakeUtilities.camelToDash(_namespace);
   var _hasNamespace = (_arguments.length > 1);
   var _name = (_arguments.length > 1 ? _arguments[1] : _arguments[0] );
   var _nameDashed = MakeUtilities.camelToDash(_name);
-  var _timeStamp =  +new Date();
 
   var _templatePath = function() {
-    return path.join(__dirname, '..', '..', 'scaffolding', 'templates', 'migration.js.handlebars');
+    return path.join(__dirname, '..', '..', 'scaffolding', 'templates', 'seed.js.handlebars');
   }
 
   var _createPath = function(workingDirectory) {
     // TODO allow the user to create the new view from anywhere in the project (not just the root)
-    var componentRoot = path.join(workingDirectory, 'server', 'migrations');
+    var componentRoot = path.join(workingDirectory, 'server', 'migrations', 'seeds');
 
     return componentRoot;
   }
@@ -32,8 +31,7 @@ var MakeMigrationCommand = function () {
       namespaceDashed: _namespaceDashed,
       hasNamespace: _hasNamespace,
       name: _name,
-      nameDashed: _nameDashed,
-      timeStamp: _timeStamp
+      nameDashed: _nameDashed
     });
   }
 
@@ -42,7 +40,13 @@ var MakeMigrationCommand = function () {
 
     var workingDirectory = process.cwd();
     var base = _createPath(workingDirectory);
-    write.sync(path.join(base, _timeStamp + '-' + _nameDashed + '.js'), jsContent);
+
+    var name = _name;
+    if (_hasNamespace) { 
+      name = _namespace + _name;
+    }
+  
+    write.sync(path.join(base, name + '.js'), jsContent);
   };
 
   return {
@@ -50,4 +54,4 @@ var MakeMigrationCommand = function () {
   }
 };
 
-module.exports = MakeMigrationCommand;
+module.exports = MakeSeederCommand;

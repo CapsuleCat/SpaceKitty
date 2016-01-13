@@ -50,10 +50,12 @@ meteor
 # Commands
 
 * [meow](#meow)
+* [db:seed](#dbseed)
 * [create](#create)
 * [make:collection](#makecollection)
 * [make:command](#makecommand)
 * [make:migration](#makemigration)
+* [make:seeder](#makeseeder)
 * [make:view](#makeview)
 * [remind-me](#remind-me)
 
@@ -64,6 +66,12 @@ kitty meow
 ```
 
 Make sure you have the CLI installed correctly, should just print `Meow` to the stdout.
+
+## db:seed
+
+This will take all of your seeds and run them.
+
+See [make:seeder](#makeseeder) and [make:model-factory](#makemode-factory).
 
 ## create
 
@@ -140,6 +148,32 @@ server
 Migrations are automatically versioned by the timestamp of when they were created.
 
 The migration package and project scaffolding will not be created until you create your first migration. The `.meteor/packages` files will have `percolate:migrations` added to it if does not already exist. `server/RunMigrations.js` will automatically be created if it does not already exist.
+
+## make:seeder
+
+```sh
+kitty make:migration [Namespace] SeedName
+```
+
+This will generate a seed for you, and assumes the SeedName
+is the same as the name of the Model Factory that you would
+like to use. By default, a seeder assumes you have made a
+Model Factory:
+
+```js
+Seeder.Todos = function () {
+  $factory(Todos).create(10).insertAll();
+}
+```
+
+This will be created in:
+
+```
+server
+└──migrations
+    └──seeds
+        └── NamespaceSeedName.js
+```
 
 ## make:view
 

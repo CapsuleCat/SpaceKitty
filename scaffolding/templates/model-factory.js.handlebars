@@ -1,0 +1,6 @@
+/**
+ * {{#if hasNamespace}}{{namespace}} {{/if}}{{name}} Model Factory
+ */
+$factory.define({{#if hasNamespace}}{{namespace}}.{{/if}}{{name}}, function (faker) {
+  return $factory.raw({{#if hasNamespace}}{{namespace}}.{{/if}}{{name}});
+});

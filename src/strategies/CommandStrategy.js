@@ -10,6 +10,10 @@ var AddMigrationRunnerCommand = require('../commands/AddMigrationRunnerCommand')
 var PrintDocumentationCommand = require('../commands/PrintDocumentationCommand');
 var ReactLoopReminder = require('../reminders/ReactLoopReminder');
 var MeteorCallReminder = require('../reminders/MeteorCallReminder');
+var MakeModelFactoryCommand = require('../commands/MakeModelFactoryCommand');
+var MakeSeederCommand = require('../commands/MakeSeederCommand');
+var AddSeederRunnerCommand = require('../commands/AddSeederRunnerCommand');
+var SeedDatabaseCommand = require('../commands/SeedDatabaseCommand');
 
 var CommandStrategy = function(commandPattern, args, flags) {
   var _commander = function(klass) {
@@ -24,8 +28,11 @@ var CommandStrategy = function(commandPattern, args, flags) {
 
   var execute = function () {
     switch (commandPattern) {
-    case 'meow':
+      case 'meow':
         _commander(MeowCommand);
+        break;
+      case 'db:seed':
+        _commander(SeedDatabaseCommand);
         break;
       case 'create':
         _commander(CreateCommand);
@@ -46,6 +53,13 @@ var CommandStrategy = function(commandPattern, args, flags) {
         _commander(AddMigrationPackageCommand);
         _commander(MakeMigrationCommand);
         _commander(AddMigrationRunnerCommand);
+        break;
+      case 'make:model-factory':
+        _commander(MakeModelFactoryCommand);
+        break;
+      case 'make:seeder':
+        _commander(MakeSeederCommand);
+        _commander(AddSeederRunnerCommand);
         break;
       case 'remind-me:react-loop':
         _reminder(ReactLoopReminder);

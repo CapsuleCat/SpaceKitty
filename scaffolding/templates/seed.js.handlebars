@@ -1,0 +1,8 @@
+/**
+ * {{#if hasNamespace}}{{namespace}} {{/if}}{{name}} Seeder
+ */
+Seeder = typeof Seeder === 'undefined' ? {} : Seeder;
+
+Seeder.{{#if hasNamespace}}{{namespace}}_{{/if}}{{name}} = function () {
+  $factory({{#if hasNamespace}}{{namespace}}.{{/if}}{{name}}).create(10).insertAll();
+}

@@ -1,0 +1,11 @@
+Meteor.startup(function() {
+  if (process.env.METEOR_ENV === 'seed') {
+    for (var prop in Seeder) {
+      if (Seeder.hasOwnProperty(prop)) {
+        Seeder[prop]();
+      }
+    }
+
+    process.kill();
+  }
+});
