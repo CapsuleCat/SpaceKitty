@@ -1,7 +1,7 @@
 Space Kitty
 ===========
 
-![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
+![MIT License](https://img.shields.io/badge/license-MIT-blue.svg) [![npm version](https://badge.fury.io/js/space-kitty.svg)](https://badge.fury.io/js/space-kitty)
 
 For Meteor 1.2+ and Node v5.4.0+.
 
