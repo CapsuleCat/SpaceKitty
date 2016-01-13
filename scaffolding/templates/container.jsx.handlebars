@@ -4,10 +4,16 @@
 {{#if hasNamespace}}
 {{namespace}} = typeof {{namespace}} === 'undefined' ? {} : {{namespace}};
 
-{{namespace}}.{{/if}}{{name}} = React.createClass({
-  mixins: [React.addons.PureRenderMixin, ReactBEM],
-  getDefaultProps() {
+{{namespace}}.{{/if}}{{name}}Container = React.createClass({
+  mixins: [ReactMeteorData, ReactBEM],
+  getMeteorData() {
     return {};
+  },
+  getInitialState() {
+    return {};
+  },
+  componentDidMount() {
+    //
   },
   bem_blocks: ['{{nameDashed}}'],
   {{#if hasNamespace}}
@@ -15,9 +21,7 @@
   {{/if}}
   bem_render() {
     return (
-      <div bem_element="">
-        <p>Hello</p>
-      </div>
+      <{{#if hasNamespace}}{{namespace}}{{/if}}{{name}} />
     );
   }
 });
