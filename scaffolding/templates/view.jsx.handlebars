@@ -17,7 +17,7 @@
   bem_render() {
     return (
       <div bem_element="">
-        <p>Hello</p>
+        <p>{{#if hasNamespace}}{{namespace}} {{/if}}{{name}} says Hello</p>
       </div>
     );
   }

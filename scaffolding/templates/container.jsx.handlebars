@@ -21,7 +21,7 @@
   {{/if}}
   bem_render() {
     return (
-      <{{#if hasNamespace}}{{namespace}}{{/if}}{{name}} />
+      <{{#if hasNamespace}}{{namespace}}.{{/if}}{{name}} />
     );
   }
 });
