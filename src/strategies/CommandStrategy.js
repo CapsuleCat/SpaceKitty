@@ -15,6 +15,7 @@ var MakeModelFactoryCommand = require('../commands/MakeModelFactoryCommand');
 var MakeSeederCommand = require('../commands/MakeSeederCommand');
 var AddSeederRunnerCommand = require('../commands/AddSeederRunnerCommand');
 var SeedDatabaseCommand = require('../commands/SeedDatabaseCommand');
+var MakeTestCommand = require('../commands/MakeTestCommand');
 
 var CommandStrategy = function(commandPattern, args, flags) {
   var _commander = function(klass) {
@@ -63,6 +64,9 @@ var CommandStrategy = function(commandPattern, args, flags) {
       case 'make:seeder':
         _commander(MakeSeederCommand);
         _commander(AddSeederRunnerCommand);
+        break;
+      case 'make:test':
+        _commander(MakeTestCommand);
         break;
       case 'remind-me:react-loop':
         _reminder(ReactLoopReminder);
