@@ -118,4 +118,55 @@ describe('Arena', () => {
 `
     );
   });
+
+  it( 'creates files for the given CamelName', function () {
+    var command = new ComponentMakeCommand({
+      name: 'CamelName',
+      fileHandler: fileHandler
+    });
+
+    command.handle();
+
+    fileHandler.create.should.have.been.called.exactly(3);
+
+    fileHandler.create.should.have.been.called.with(
+      'client/components/camel-name/camel-name.jsx',
+`import React from 'react';
+
+/**
+ * CamelName
+ */
+export default () => (
+  <div class="camel-name">
+    CamelName
+  </div>
+);
+`
+    );
+
+    fileHandler.create.should.have.been.called.with(
+      'client/components/camel-name/_camel-name.scss',
+`.camel-name {
+  //
+}
+`
+    );
+
+    fileHandler.create.should.have.been.called.with(
+      'client/components/camel-name/tests/camel-name.jsx',
+`const {describe, it} = global;
+import {expect} from 'chai';
+import {shallow} from 'enzyme';
+
+import CamelName from '../camel-name.jsx';
+
+describe('CamelName', () => {
+  it('should exist', () => {
+    const el = shallow(<CamelName />);
+    expect(el.find('.camel-name').length).to.be.equal(1);
+  });
+});
+`
+    );
+  });
 });
