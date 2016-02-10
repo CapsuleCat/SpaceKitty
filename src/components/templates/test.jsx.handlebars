@@ -7,6 +7,6 @@ import {{name}} from '../{{nameDashed}}.jsx';
 describe('{{#if hasNamespace}}{{namespace}} {{/if}}{{name}}', () => {
   it('should exist', () => {
     const el = shallow(<{{name}} />);
-    expect(el.find('.{{#if hasNamespace}}{{namespaceDashed}}{{/if}}-{{nameDashed}}').length).to.be.equal(1);
+    expect(el.find('.{{#if hasNamespace}}{{namespaceDashed}}-{{/if}}{{nameDashed}}').length).to.be.equal(1);
   });
 });

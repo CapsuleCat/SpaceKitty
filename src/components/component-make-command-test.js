@@ -16,7 +16,7 @@ describe( 'component:make', function () {
     ]);
   });
 
-  it( 'creates a jsx file', function () {
+  it( 'creates files for the given name and namespace', function () {
     var command = new ComponentMakeCommand({
       namespace: 'Game',
       name: 'Arena',
@@ -62,6 +62,57 @@ describe('Game Arena', () => {
   it('should exist', () => {
     const el = shallow(<Arena />);
     expect(el.find('.game-arena').length).to.be.equal(1);
+  });
+});
+`
+    );
+  });
+
+  it( 'creates files for the given name', function () {
+    var command = new ComponentMakeCommand({
+      name: 'Arena',
+      fileHandler: fileHandler
+    });
+
+    command.handle();
+
+    fileHandler.create.should.have.been.called.exactly(3);
+
+    fileHandler.create.should.have.been.called.with(
+      'client/components/arena/arena.jsx',
+`import React from 'react';
+
+/**
+ * Arena
+ */
+export default () => (
+  <div class="arena">
+    Arena
+  </div>
+);
+`
+    );
+
+    fileHandler.create.should.have.been.called.with(
+      'client/components/arena/_arena.scss',
+`.arena {
+  //
+}
+`
+    );
+
+    fileHandler.create.should.have.been.called.with(
+      'client/components/arena/tests/arena.jsx',
+`const {describe, it} = global;
+import {expect} from 'chai';
+import {shallow} from 'enzyme';
+
+import Arena from '../arena.jsx';
+
+describe('Arena', () => {
+  it('should exist', () => {
+    const el = shallow(<Arena />);
+    expect(el.find('.arena').length).to.be.equal(1);
   });
 });
 `
