@@ -8,16 +8,20 @@ var ComponentMakeCommand = function (options) {
   var namespace = '';
   var hasNamespace = false;
   var name = '';
+  var namespaceDashed = '';
+  var nameDashed = '';
 
   // Constructor
   // ===========
   if ( options.namespace ) {
     namespace = options.namespace;
+    namespaceDashed = MakeUtilities.camelToDash( namespace );
     hasNamespace = true;
   }
 
   if ( options.name ) {
     name = options.name;
+    nameDashed = MakeUtilities.camelToDash( name );
   } else {
     throw new Error( 'name is required' );
   }
@@ -28,24 +32,11 @@ var ComponentMakeCommand = function (options) {
     throw new Error( 'a file handler is required' );
   }
 
-  /**
-   * Get the path to the JSX template
-   */
-  var _getJsxTemplatePath = function() {
-    return path.join(__dirname, '..', '..', 'scaffolding', 'templates', 'component.jsx.handlebars');
-  }
-
-  var _getScssTemplatePath = function () {
-    return path.join(__dirname, '..', '..', 'scaffolding', 'templates', 'bem.scss.handlebars');
-  }
-
   var _templatize = function (templatePath) {
     var raw = read.sync(templatePath, { encoding: 'utf8' });
 
-    var namespaceDashed = MakeUtilities.camelToDash( namespace );
-    var nameDashed = MakeUtilities.camelToDash( name );
-    var capitalName = MakeUtilities.toWordCamelCase( name );
-    var capitalNamespace = MakeUtilities.toWordCamelCase( namespace );
+    var capitalName = MakeUtilities.toUpperCaseWords( name );
+    var capitalNamespace = MakeUtilities.toUpperCaseWords( namespace );
 
     var template = Handlebars.compile(raw);
 
@@ -61,24 +52,33 @@ var ComponentMakeCommand = function (options) {
   }
 
   var handle = function () {
-    var jsxContent = _templatize( _getJsxTemplatePath() );
-    var scssContent = _templatize( _getScssTemplatePath() );
+    var jsxContent = _templatize(
+        path.join(__dirname, 'templates', 'component.jsx.handlebars')
+    );
+    var scssContent = _templatize( 
+        path.join(__dirname, 'templates', 'bem.scss.handlebars')
+    );
+    var testContent = _templatize( 
+        path.join(__dirname, 'templates', 'test.jsx.handlebars')
+    );
 
     // Make the base path
     var basePath = path.join( 'client', 'components' );
 
     if ( hasNamespace ) {
-      basePath = path.join( basePath, namespace );
+      basePath = path.join( basePath, namespaceDashed );
     }
 
-    basePath = path.join( basePath, name );
+    basePath = path.join( basePath, nameDashed );
 
     // Create the file paths
-    var jsxPath = path.join( basePath, name + '.jsx' );
-    var scssPath = path.join( basePath, '_' + name + '.scss' );
+    var jsxPath = path.join( basePath, nameDashed + '.jsx' );
+    var scssPath = path.join( basePath, '_' + nameDashed + '.scss' );
+    var testPath = path.join( basePath, 'tests', nameDashed + '.jsx' );
 
     fileHandler.create( jsxPath, jsxContent );
     fileHandler.create( scssPath, scssContent );
+    fileHandler.create( testPath, testContent );
   };
 
   return {

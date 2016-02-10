@@ -1,0 +1,12 @@
+const {describe, it} = global;
+import {expect} from 'chai';
+import {shallow} from 'enzyme';
+
+import {{name}} from '../{{nameDashed}}.jsx';
+
+describe('{{#if hasNamespace}}{{namespace}} {{/if}}{{name}}', () => {
+  it('should exist', () => {
+    const el = shallow(<{{name}} />);
+    expect(el.find('.{{#if hasNamespace}}{{namespaceDashed}}{{/if}}-{{nameDashed}}').length).to.be.equal(1);
+  });
+});

@@ -18,14 +18,14 @@ describe( 'component:make', function () {
 
   it( 'creates a jsx file', function () {
     var command = new ComponentMakeCommand({
-      namespace: 'game',
-      name: 'arena',
+      namespace: 'Game',
+      name: 'Arena',
       fileHandler: fileHandler
     });
 
     command.handle();
 
-    fileHandler.create.should.have.been.called.twice();
+    fileHandler.create.should.have.been.called.exactly(3);
 
     fileHandler.create.should.have.been.called.with(
       'client/components/game/arena/arena.jsx',
@@ -47,6 +47,23 @@ export default () => (
 `.game-arena {
   //
 }
+`
+    );
+
+    fileHandler.create.should.have.been.called.with(
+      'client/components/game/arena/tests/arena.jsx',
+`const {describe, it} = global;
+import {expect} from 'chai';
+import {shallow} from 'enzyme';
+
+import Arena from '../arena.jsx';
+
+describe('Game Arena', () => {
+  it('should exist', () => {
+    const el = shallow(<Arena />);
+    expect(el.find('.game-arena').length).to.be.equal(1);
+  });
+});
 `
     );
   });

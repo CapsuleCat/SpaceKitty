@@ -4,7 +4,7 @@ import React from 'react';
  * {{#if hasNamespace}}{{capitalNamespace}} {{/if}}{{capitalName}}
  */
 export default () => (
-  <div class="{{#if hasNamespace}}{{namespaceDashed}}-{{/if}}{{name}}">
+  <div class="{{#if hasNamespace}}{{namespaceDashed}}-{{/if}}{{nameDashed}}">
     {{#if hasNamespace}}{{capitalNamespace}} {{/if}}{{capitalName}}
   </div>
 );
