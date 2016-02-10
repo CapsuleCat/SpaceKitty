@@ -1,0 +1,10 @@
+import React from 'react';
+
+/**
+ * {{#if hasNamespace}}{{capitalNamespace}} {{/if}}{{capitalName}}
+ */
+export default () => (
+  <div class="{{#if hasNamespace}}{{namespaceDashed}}-{{/if}}{{name}}">
+    {{#if hasNamespace}}{{capitalNamespace}} {{/if}}{{capitalName}}
+  </div>
+);

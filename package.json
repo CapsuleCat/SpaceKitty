@@ -1,6 +1,9 @@
 {
   "name": "space-kitty",
   "version": "0.2.0",
+  "options": {
+    "mocha": "--require .scripts/mocha-runner src/**/*-test.js"
+  },
   "description": "Opinionated Meteor command line utility",
   "homepage": "http://spacekitty.capsulecat.com",
   "bugs": "https://github.com/capsulecat/spacekitty/issues",
@@ -12,6 +15,11 @@
   "engines": {
     "node": ">=5.4.0"
   },
+  "devDependencies": {
+    "chai": "3.x.x",
+    "chai-spies": "^0.7.1",
+    "mocha": "2.x.x"
+  },
   "dependencies": {
     "connect": "^3.4.0",
     "handlebars": "^4.0.5",
@@ -21,7 +29,9 @@
     "recursive-copy": "^1.0.10"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "testonly": "mocha $npm_package_options_mocha",
+    "test": "npm run testonly",
+    "watch-tests": "mocha $npm_package_options_mocha --watch"
   },
   "author": "Capsule Cat",
   "preferGlobal": true,

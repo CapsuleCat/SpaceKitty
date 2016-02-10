@@ -1,0 +1,46 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/idmontie/.nvm/versions/node/v5.4.0/bin/node',
+1 verbose cli   '/Users/idmontie/.nvm/versions/node/v5.4.0/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'watch-tests' ]
+2 info using npm@3.3.12
+3 info using node@v5.4.0
+4 verbose run-script [ 'prewatch-tests', 'watch-tests', 'postwatch-tests' ]
+5 info lifecycle space-kitty@0.2.0~prewatch-tests: space-kitty@0.2.0
+6 silly lifecycle space-kitty@0.2.0~prewatch-tests: no script for prewatch-tests, continuing
+7 info lifecycle space-kitty@0.2.0~watch-tests: space-kitty@0.2.0
+8 verbose lifecycle space-kitty@0.2.0~watch-tests: unsafe-perm in lifecycle true
+9 verbose lifecycle space-kitty@0.2.0~watch-tests: PATH: /Users/idmontie/.nvm/versions/node/v5.4.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/idmontie/Desktop/repos/SpaceKitty/node_modules/.bin:/Users/idmontie/.rvm/gems/ruby-2.2.1/bin:/Users/idmontie/.rvm/gems/ruby-2.2.1@global/bin:/Users/idmontie/.rvm/rubies/ruby-2.2.1/bin:/Users/idmontie/.nvm/versions/node/v5.4.0/bin:/Applications/MAMP/bin/php/php5.6.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.composer/vendor/bin/:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tool:/opt/X11/bin:/Users/idmontie/.rvm/bin
+10 verbose lifecycle space-kitty@0.2.0~watch-tests: CWD: /Users/idmontie/Desktop/repos/SpaceKitty
+11 silly lifecycle space-kitty@0.2.0~watch-tests: Args: [ '-c', 'mocha $npm_package_options_mocha --watch' ]
+12 silly lifecycle space-kitty@0.2.0~watch-tests: Returned: code: 1  signal: null
+13 info lifecycle space-kitty@0.2.0~watch-tests: Failed to exec watch-tests script
+14 verbose stack Error: space-kitty@0.2.0 watch-tests: `mocha $npm_package_options_mocha --watch`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/Users/idmontie/.nvm/versions/node/v5.4.0/lib/node_modules/npm/lib/utils/lifecycle.js:232:16)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at EventEmitter.emit (events.js:172:7)
+14 verbose stack     at ChildProcess.<anonymous> (/Users/idmontie/.nvm/versions/node/v5.4.0/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at ChildProcess.emit (events.js:172:7)
+14 verbose stack     at maybeClose (internal/child_process.js:821:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+15 verbose pkgid space-kitty@0.2.0
+16 verbose cwd /Users/idmontie/Desktop/repos/SpaceKitty
+17 error Darwin 15.2.0
+18 error argv "/Users/idmontie/.nvm/versions/node/v5.4.0/bin/node" "/Users/idmontie/.nvm/versions/node/v5.4.0/bin/npm" "run" "watch-tests"
+19 error node v5.4.0
+20 error npm  v3.3.12
+21 error code ELIFECYCLE
+22 error space-kitty@0.2.0 watch-tests: `mocha $npm_package_options_mocha --watch`
+22 error Exit status 1
+23 error Failed at the space-kitty@0.2.0 watch-tests script 'mocha $npm_package_options_mocha --watch'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the space-kitty package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     mocha $npm_package_options_mocha --watch
+23 error You can get their info via:
+23 error     npm owner ls space-kitty
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
