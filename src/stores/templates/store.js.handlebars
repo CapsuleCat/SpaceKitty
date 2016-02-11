@@ -1,0 +1,24 @@
+import Reflux from 'reflux';
+{{#if actions}}
+
+{{#each actions}}
+import { default as {{name}} } from '../actions/{{dashed}}';
+{{/each}}
+{{/if}}
+
+/**
+ * GameStore
+ */
+const GameStore = Reflux.createStore({
+  listenables: [{{actionsMerged}}],
+  init() {
+    //
+  },
+  getInitialState() {
+    return {
+      //
+    };
+  }
+});
+
+export default { GameStore };
