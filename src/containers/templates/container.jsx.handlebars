@@ -1,0 +1,29 @@
+import React from 'react';
+import Reflux from 'reflux';
+{{#if stores}}
+
+{{#each stores}}
+import { default as {{name}} } from '../stores/{{dashed}}';
+{{/each}}
+{{/if}}
+
+/**
+ * {{name}}
+ */
+export default React.createClass({
+  {{#if stores}}
+  mixins: [
+    {{#each stores}}
+    Reflux.connect({{name}}, '{{name}}'){{#unless @last}},{{/unless}}
+    {{/each}}
+  ],
+  {{/if}}
+
+  render() {
+    return (
+      <div>
+        {{name}}
+      </div>
+    );
+  }
+});
