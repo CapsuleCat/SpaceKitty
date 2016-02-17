@@ -16,7 +16,7 @@ npm install -g space-kitty
 # Getting Started
 
 ```
-mpm install -g space-kitty
+npm install -g space-kitty
 kitty meow
 kitty create MyProject
 cd MyProject
