@@ -19,20 +19,20 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
 
-jsx
-react
-react-runtime
-react-meteor-data
-kadira:flow-router
-kadira:react-layout
+react                   # React, includes jsx and react-runtime
+react-meteor-data       # Mixin for React components
+kadira:flow-router      # Non-reactive router
+kadira:react-layout     # Layouts for React routes
 
-fourseven:scss
-poetic:materialize-scss
-fortawesome:fontawesome
+fourseven:scss          # SCSS support
+poetic:materialize-scss # Materialize with SCSS files
+fortawesome:fontawesome # FontAwesome
 
-tap:i18n
+tap:i18n                # Internationalization support
 
-aldeed:collection2
+aldeed:collection2      # Schemas for Mongo collections
+
+sanjo:jasmine           # Jasmine Tests
 
 capsulecat:react-bem
 capsulecat:commands

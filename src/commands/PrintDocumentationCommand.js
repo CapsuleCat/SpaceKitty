@@ -8,8 +8,9 @@ var PrintDocumentationCommand = function () {
     console.log('├── db');
     console.log('|    └── seed          ─ Seed the database using your seeders');
     console.log('├── make');
-    console.log('|    ├── command       ─ Create a dispatchable command');
     console.log('|    ├── collection    ─ Create a collection (only supports Mongo)');
+    console.log('|    ├── command       ─ Create a dispatchable command');
+    console.log('|    ├── container     ─ Create a React container for a View');
     console.log('|    ├── meteor-method ─ Create a Meteor method');
     console.log('|    ├── model-factory ─ Create a model factory for the given collection');
     console.log('|    ├── migration     ─ Create a migration (uses percolate:migrations)');

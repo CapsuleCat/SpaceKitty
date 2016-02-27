@@ -54,6 +54,7 @@ meteor
 * [create](#create)
 * [make:collection](#makecollection)
 * [make:command](#makecommand)
+* [make:container](#makecontainer)
 * [make:migration](#makemigration)
 * [make:seeder](#makeseeder)
 * [make:view](#makeview)
@@ -112,6 +113,23 @@ lib
 ```
 
 You can then call your command using `dispatch(CommandName, arg1, arg2)` or `dispatchAsync(CommandName, arg1, arg2, callback);`.
+
+## make:container
+
+```sh
+kitty make:container [Namespace] ViewName
+```
+
+This command will create a React container for the
+given ViewName:
+
+```
+client
+└──containers
+    └──[Namespace]
+        └── ViewName
+            └── ViewNameContainer.jsx
+```
 
 ## make:meteor-method
 
