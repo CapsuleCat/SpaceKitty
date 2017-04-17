@@ -1,6 +1,7 @@
 var MeowCommand = require('../commands/MeowCommand');
 var CreateCommand = require('../commands/CreateCommand');
 var MakeViewCommand = require('../commands/MakeViewCommand');
+var MakeContainerCommand = require('../commands/MakeContainerCommand');
 var MakeCommandCommand = require('../commands/MakeCommandCommand');
 var MakeCollectionCommand = require('../commands/MakeCollectionCommand');
 var MakeMeteorMethodCommand = require('../commands/MakeMeteorMethodCommand');
@@ -49,6 +50,8 @@ var CommandStrategy = function(commandPattern, args, flags) {
       case 'make:collection':
         _commander(MakeCollectionCommand);
         break;
+      case 'make:container':
+        _commander(MakeContainerCommand);
       case 'make:migration':
         _commander(AddMigrationPackageCommand);
         _commander(MakeMigrationCommand);
